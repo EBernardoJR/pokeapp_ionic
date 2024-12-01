@@ -1,0 +1,22 @@
+
+
+<ion-content class="ion-padding">
+  <div class="login-container">
+        <div class="logo-container">
+          <img src="assets/logo.png" alt="Logo da Aplicação" />
+        </div>
+        <div class="input-container">
+          <ion-label>Nome</ion-label>
+          <ion-input  class="input" type="text" [(ngModel)]="name"></ion-input>
+        </div >
+        <div class="input-container">
+          <ion-label>Senha</ion-label>
+          <ion-input  class="input" type="password" [(ngModel)]="password"></ion-input>
+        </div>
+        <div class="input-container">
+          <ion-label>E-mail</ion-label>
+          <ion-input class="input" type="email" [(ngModel)]="email"></ion-input>
+        </div >
+        <ion-button shape="round" (click)="login()">Registrar-se</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,61 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ion-padding {
+  --background: #E5E9B4;
+}
+
+.form {
+  --background: #E5E9B4;
+}
+
+.input {
+  --background: transparent; /* Remove o fundo padrão dos inputs */
+
+  border: 1px solid #606330; /* Adiciona a borda aos inputs */
+  border-radius: 30px; /* Torna as bordas arredondadas (opcional) */
+  margin-bottom: 16px; /* Espaçamento entre os inputs */
+  height: 50px;
+  padding-left: 10px;
+  color: #606330;
+  margin-top: 0;
+  width: 250px;
+}
+ion-item {
+  --background: transparent;
+  --ion-item-border-color: transparent;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+ion-label {
+  font-size: 16px; /* Tamanho do texto do label */
+  font-weight: 500;
+  margin-bottom: 8px; /* Espaçamento entre o label e o input */
+  color: #606330;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px; /* Espaçamento entre os campos */
+  position: relative;
+}
+ion-button {
+  margin-top: 60px;
+  --background: #606330;
+  color: #E5E9B4;
+  width: 160px;
+  height: 50px;
+}
+
+.logo-container {
+  width: 170px;
+  margin-bottom: 20px;
+}
