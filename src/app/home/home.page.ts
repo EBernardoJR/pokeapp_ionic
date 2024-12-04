@@ -15,9 +15,9 @@ export class HomePage {
   pokemonsSaveds: any[] = []; // Lista de Pokémon
   isLoading = true; // Indicador de carregamento
   filter: string = '';
-  name: string = '';  
-  email: string = '';  
-  filteredPokemonList: any[] = [];  
+  name: string = '';
+  email: string = '';
+  filteredPokemonList: any[] = [];
 
 
   constructor(private pokemonService: PokemonService,
@@ -26,8 +26,8 @@ export class HomePage {
   ) {}
 
   ngOnInit() {
-    this.name = this.dataService.getData('name');  
-    this.email = this.dataService.getData('email');  
+    this.name = this.dataService.getData('name');
+    this.email = this.dataService.getData('email');
     this.fetchPokemonList()
 
     if (!this.name || !this.email) {
@@ -37,7 +37,7 @@ export class HomePage {
 
 
   fetchPokemonList() {
-    this.pokemonService.getPokemonList(20, 0).subscribe({
+    this.pokemonService.getPokemonList(100, 0).subscribe({
       next: (response) => {
         console.log('Pokémon:', response);
         const list = response.results?.map((poke: any) => {
