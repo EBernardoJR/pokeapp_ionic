@@ -1,0 +1,80 @@
+/* Fundo do conteúdo */
+ion-content {
+  --background: #E5E9B4;
+
+/* Botão de voltar */
+  ion-back-button {
+  color: #606330;
+  text-transform: none;
+  position: absolute;
+  top: 20px; 
+  left: 10px; 
+}
+
+}
+
+/* Card com os detalhes do Pokémon */
+.pokemon-details-container {
+  background-color: #FBFEE0; 
+  padding: 25px; 
+  border-radius: 15px; 
+  text-align: left; 
+  color: #606330; 
+  width: 100%; 
+  max-width: 380px; 
+  margin: 20% auto 5%;
+  position: relative;
+
+  
+}
+
+/* Nome do Pokémon */
+.pokemon-name {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+  color: #606330;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Imagem do Pokémon */
+.pokemon-image {
+  width: 170px;
+  height: auto;
+  display: block;
+  margin: 0 auto 16px;
+}
+
+/* Estatísticas do Pokémon */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 16px 0;
+  font-size: 1rem;
+  color: #606330;
+}
+
+/* Movimentos do Pokémon */
+.moves {
+  background-color: #606330;
+  padding: 8px;
+  border-radius: 4px;
+  color: #E5E9B4;
+  font-size: 0.9rem;
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* Botão "Salvar" */
+.save-button {
+  color: #606330;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: bold;
+  margin: auto;
+}
