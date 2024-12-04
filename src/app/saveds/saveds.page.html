@@ -1,0 +1,43 @@
+
+<ion-content [fullscreen]="true">
+  <ion-button id="back" (click)="goBack()" shape="clear" >
+    <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    Voltar
+  </ion-button>
+  <div id="header">
+    <strong><ion-icon name="person-circle"></ion-icon>{{ name }}</strong>
+    <p>Todos os pokémons que você salvou</p>
+  </div>
+  <div class="container">
+    <ion-list class="list" *ngIf="pokemonsSaveds.length > 0">
+      <div *ngFor="let pokemon of pokemonsSaveds"  class="item">
+        <p class="item-header">
+          <img [src]="pokemon.image" [alt]="pokemon.name">
+          <strong>{{ pokemon.name }}</strong>
+        </p>
+        <p class="types-top">
+          Tipos
+        </p>
+        <div class="types">
+          <ion-chip>
+            <ion-icon color="#000" name="flame"></ion-icon>
+             Fogo
+          </ion-chip>
+          <ion-chip>
+            <ion-icon color="#000" name="water"></ion-icon>
+             agua
+          </ion-chip>
+          <ion-chip>
+            <ion-icon name="leaf" color="#000"></ion-icon>
+             Planta
+          </ion-chip>
+        </div>
+        <div class="item-buttons">
+          <ion-button class="saved" shape="clear" size="medium"><ion-icon name="heart"></ion-icon>Salvo</ion-button>
+          <ion-button shape="clear" size="medium">Explorar<ion-icon name="arrow-forward-outline" color="#000"></ion-icon></ion-button>
+        </div>
+     </div>
+    </ion-list>
+
+  </div>
+</ion-content>

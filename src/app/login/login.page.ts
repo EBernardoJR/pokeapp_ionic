@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -11,7 +12,7 @@ export class LoginPage {
   password: string = '';
   name: string = '';
 
-  constructor(private navCtrl: NavController) {}
+  constructor(private router: Router) {}
 
   login() {
     if (this.email === '' || this.password === '' || this.name === '') {
@@ -19,6 +20,6 @@ export class LoginPage {
       return;
     }
 
-    this.navCtrl.navigateRoot('/home');
+    this.router.navigate(['/home'], { queryParams: { name: this.name }});
   }
 }

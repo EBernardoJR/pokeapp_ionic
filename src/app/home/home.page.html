@@ -1,20 +1,48 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div id="header">
+    <strong><ion-icon name="person-circle"></ion-icon>{{ name }}</strong>
+    <p>Descubra novas criaturas e junte-se a nós 🐲</p>
+  </div>
+  <div id="button-area">
+    <ion-button shape="clear" class="button-saveds" (click)="toSaveds()">Visualizar todos os salvos<ion-icon name="arrow-forward-outline" color="#000"></ion-icon></ion-button>
+
+  </div>
+  <div class="container">
+    <div class="input-container">
+      <ion-input placeholder="Filtrar por nome" [(ngModel)]="filter" class="input" (ionInput)="filterPokemon()"></ion-input>
+    </div >
+    <ion-spinner *ngIf="isLoading" class="center-spinner"></ion-spinner>
+    <ion-list class="list" *ngIf="!isLoading">
+      <div *ngFor="let pokemon of filteredPokemonList"  class="item">
+        <p class="item-header">
+          <img [src]="pokemon.image" [alt]="pokemon.name">
+          <strong>{{ pokemon.name }}</strong>
+        </p>
+        <p class="types-top">
+          Tipos
+        </p>
+        <div class="types">
+          <ion-chip>
+            <ion-icon color="#000" name="flame"></ion-icon>
+             Fogo
+          </ion-chip>
+          <ion-chip>
+            <ion-icon color="#000" name="water"></ion-icon>
+             agua
+          </ion-chip>
+          <ion-chip>
+            <ion-icon name="leaf" color="#000"></ion-icon>
+             Planta
+          </ion-chip>
+        </div>
+        <div class="item-buttons">
+          <ion-button class="saved" *ngIf="pokemonsSaveds.includes(pokemon)" (click)="save(pokemon)" shape="clear" size="medium"><ion-icon name="heart"></ion-icon>Salvo</ion-button>
+          <ion-button *ngIf="!pokemonsSaveds.includes(pokemon)" (click)="save(pokemon)" shape="clear" size="medium"><ion-icon name="heart-outline" color="#cccc"></ion-icon>Salvar</ion-button>
+          <ion-button shape="clear" size="medium">Explorar<ion-icon name="arrow-forward-outline" color="#000"></ion-icon></ion-button>
+        </div>
+     </div>
+    </ion-list>
+
   </div>
 </ion-content>
