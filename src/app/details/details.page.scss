@@ -24,6 +24,7 @@ ion-content {
   max-width: 380px; 
   margin: 20% auto 5%;
   position: relative;
+  border: 1px solid #606330;
 
   
 }
@@ -54,17 +55,25 @@ ion-content {
   margin: 16px 0;
   font-size: 1rem;
   color: #606330;
+  gap: 10px; /* Espaçamento horizontal entre os elementos */
+
+  span {
+    border: 1px solid #606330; /* Borda individual para cada estatística */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 3px 3px; /* Espaçamento interno no elemento */
+    text-align: center; /* Alinha o texto no centro do item */
+    flex: 1; /* Faz com que cada elemento tenha o mesmo tamanho */
+  }
 }
 
 /* Movimentos do Pokémon */
 .moves {
   background-color: #606330;
-  padding: 8px;
-  border-radius: 4px;
+  padding: 5px;
+  border-radius: 7px;
   color: #E5E9B4;
   font-size: 0.9rem;
   width: 100%;
-  margin-top: 8px;
 }
 
 /* Botão "Salvar" */

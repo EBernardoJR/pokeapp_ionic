@@ -32,8 +32,9 @@
   </div>
 
   <!-- Botão "Salvar" fora do card, na parte inferior -->
-  <ion-button expand="block" fill="clear" class="save-button" >
-    <ion-icon name="heart-outline" slot="start"></ion-icon>
+  <ion-button expand="block" fill="clear" class="save-button" (click)="toggleSave()">
+    <ion-icon [name]="isSaved ? 'heart' : 'heart-outline'" slot="start" class="heart-icon"></ion-icon>
     Salvar
   </ion-button>
+  
 </ion-content>

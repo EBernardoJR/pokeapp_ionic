@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit {
- // Dados do Pokémon
+  // Dados do Pokémon
   pokemon = {
     name: 'charmander',
     weight: 85,
@@ -18,10 +18,15 @@ export class DetailsPage implements OnInit {
     moves: ['mega-punch', 'fire-punch', 'scratch'],
     imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png',
   };
-  constructor() { }
 
-  ngOnInit() {
+  isSaved: boolean = false;
+
+  constructor() {}
+
+  ngOnInit() {}
+
+  // Alterna o estado de "Salvar"
+  toggleSave() {
+    this.isSaved = !this.isSaved; // Altera entre salvo e não salvo
   }
-
 }
-
