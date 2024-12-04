@@ -12,11 +12,12 @@ import { DataService } from '../services/data.service';
 export class HomePage {
 
   pokemonList: any[] = [];
-  pokemonsSaveds: any[] = []; // Lista de Pokémon
-  isLoading = true; // Indicador de carregamento
+  pokemonsSaveds: any[] = [];  
+  isLoading = true;  
   filter: string = '';
-  name: string = 'Usuário';
-  filteredPokemonList: any[] = []; // Lista filtrada
+  name: string = '';  
+  email: string = '';  
+  filteredPokemonList: any[] = [];  
 
   constructor(private pokemonService: PokemonService,
     private navCtrl: NavController, private route: ActivatedRoute,
@@ -25,20 +26,20 @@ export class HomePage {
 
   ngOnInit() {
     this.fetchPokemonList();
-    this.pokemonsSaveds = this.dataService.getData('pokemon')
-    this.route.queryParams.subscribe(params => {
-      if (params['name']) {
-        this.name = params['name'];
-      } else {
-        this.navCtrl.navigateRoot('/login')
-      }
-    });
+
+    
+    this.name = this.dataService.getData('name');  
+    this.email = this.dataService.getData('email');  
+
+    
+    if (!this.name || !this.email) {
+      this.navCtrl.navigateRoot('/login');
+    }
   }
 
   fetchPokemonList() {
     this.pokemonService.getPokemonList(20, 0).subscribe({
       next: (response) => {
-        console.log('Pokémon:', response);
         const list = response.results?.map((poke: any) => {
           const id = poke.url.split('/').slice(-2, -1)[0];
           return {
@@ -46,8 +47,7 @@ export class HomePage {
             id,
             image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
           }
-        })
-        console.log(list)
+        });
         this.pokemonList = list;
         this.filteredPokemonList = list;
         this.isLoading = false;
@@ -58,19 +58,20 @@ export class HomePage {
       }
     });
   }
+
   filterPokemon() {
-    const searchTermLower = this.filter.toLowerCase(); // Converter termo para minúsculas
+    const searchTermLower = this.filter.toLowerCase();
     this.filteredPokemonList = this.pokemonList.filter(pokemon =>
-      pokemon.name.toLowerCase().includes(searchTermLower) // Nome do Pokémon
+      pokemon.name.toLowerCase().includes(searchTermLower)
     );
   }
 
   save(pokemon: any) {
     this.dataService.setData('pokemon', pokemon);
-    this.pokemonsSaveds = this.dataService.getData('pokemon')
-    console.log(this.pokemonsSaveds)
+    this.pokemonsSaveds = this.dataService.getData('pokemon');
   }
+
   toSaveds() {
-    this.router.navigate(['/saveds'], { queryParams: { name: this.name }})
+    this.router.navigate(['/saveds'], { queryParams: { name: this.name } });
   }
 }

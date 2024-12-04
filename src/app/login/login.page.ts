@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { DataService } from '../services/data.service'; // Certifique-se do caminho correto
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ export class LoginPage {
   password: string = '';
   name: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private dataService: DataService) {} 
 
   login() {
     if (this.email === '' || this.password === '' || this.name === '') {
@@ -20,6 +20,11 @@ export class LoginPage {
       return;
     }
 
-    this.router.navigate(['/home'], { queryParams: { name: this.name }});
+    
+    this.dataService.setData('email', this.email);
+    this.dataService.setData('name', this.name);
+
+    
+    this.router.navigate(['/home'], { queryParams: { name: this.name } });
   }
 }
