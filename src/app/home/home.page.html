@@ -39,7 +39,7 @@
         <div class="item-buttons">
           <ion-button class="saved" *ngIf="pokemonsSaveds.includes(pokemon)" (click)="save(pokemon)" shape="clear" size="medium"><ion-icon name="heart"></ion-icon>Salvo</ion-button>
           <ion-button *ngIf="!pokemonsSaveds.includes(pokemon)" (click)="save(pokemon)" shape="clear" size="medium"><ion-icon name="heart-outline" color="#cccc"></ion-icon>Salvar</ion-button>
-          <ion-button shape="clear" size="medium">Explorar<ion-icon name="arrow-forward-outline" color="#000"></ion-icon></ion-button>
+          <ion-button shape="clear" size="medium" (click)="toDetails(pokemon.name, pokemon.image)">Explorar<ion-icon name="arrow-forward-outline" color="#000"></ion-icon></ion-button>
         </div>
      </div>
     </ion-list>

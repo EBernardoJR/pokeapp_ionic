@@ -1,8 +1,8 @@
 <ion-content class="ion-background">
   <!-- Botão de voltar para a página anterior -->
   <div class="back-button-container">
-    <ion-buttons> 
-      <ion-back-button defaultHref="/" text = "Voltar"></ion-back-button> 
+    <ion-buttons>
+      <ion-back-button defaultHref="/" text = "Voltar"></ion-back-button>
     </ion-buttons>
   </div>
 
@@ -12,16 +12,14 @@
     <h2 class="pokemon-name">{{ pokemon.name }}</h2>
 
     <!-- Imagem do Pokémon -->
-    <img [src]="pokemon.imageUrl" [alt]="pokemon.name" class="pokemon-image" />
+    <img [src]="pokemon.image" [alt]="pokemon.name" class="pokemon-image" />
 
     <!-- Peso do Pokémon -->
     <p>Peso: {{ pokemon.weight }}</p>
 
     <!-- Estatísticas do Pokémon -->
-    <div class="stats">
-      <span>hp: {{ pokemon.stats.hp }}</span>
-      <span>attack: {{ pokemon.stats.attack }}</span>
-      <span>defense: {{ pokemon.stats.defense }}</span>
+    <div class="stats" >
+      <span *ngFor="let stat of pokemon.stats">{{ stat.name }}: {{ stat.value }}</span>
     </div>
 
     <!-- Lista de movimentos do Pokémon -->
@@ -34,7 +32,7 @@
   <!-- Botão "Salvar" fora do card, na parte inferior -->
   <ion-button expand="block" fill="clear" class="save-button" (click)="toggleSave()">
     <ion-icon [name]="isSaved ? 'heart' : 'heart-outline'" slot="start" class="heart-icon"></ion-icon>
-    Salvar
+    {{ isSaved ? 'Salvo' : 'Salvar'}}
   </ion-button>
-  
+
 </ion-content>

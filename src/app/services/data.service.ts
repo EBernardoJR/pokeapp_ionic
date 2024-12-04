@@ -9,7 +9,6 @@ export class DataService {
   };
 
   setData(key: string, value: any) {
-    let pokemon;
     if (this.data?.hasOwnProperty(key) && !this.data[key]?.includes(value)) {
       value = [...this.data[key], value];
       this.data = { ...this.data, [key]: value };

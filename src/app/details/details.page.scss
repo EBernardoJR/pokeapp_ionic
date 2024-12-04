@@ -7,26 +7,26 @@ ion-content {
   color: #606330;
   text-transform: none;
   position: absolute;
-  top: 20px; 
-  left: 10px; 
+  top: 20px;
+  left: 10px;
 }
 
 }
 
 /* Card com os detalhes do Pokémon */
 .pokemon-details-container {
-  background-color: #FBFEE0; 
-  padding: 25px; 
-  border-radius: 15px; 
-  text-align: left; 
-  color: #606330; 
-  width: 100%; 
-  max-width: 380px; 
+  background-color: #FBFEE0;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: left;
+  color: #606330;
+  width: 100%;
+  max-width: 380px;
   margin: 20% auto 5%;
   position: relative;
   border: 1px solid #606330;
 
-  
+
 }
 
 /* Nome do Pokémon */
@@ -51,10 +51,12 @@ ion-content {
 .stats {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
   width: 100%;
   margin: 16px 0;
   font-size: 1rem;
   color: #606330;
+  flex-wrap: wrap;
   gap: 10px; /* Espaçamento horizontal entre os elementos */
 
   span {

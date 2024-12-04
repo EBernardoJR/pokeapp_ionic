@@ -1,7 +1,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-button id="back" (click)="goBack()" shape="clear" >
-    <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
     Voltar
   </ion-button>
   <div id="header">
@@ -34,7 +34,7 @@
         </div>
         <div class="item-buttons">
           <ion-button class="saved" shape="clear" size="medium"><ion-icon name="heart"></ion-icon>Salvo</ion-button>
-          <ion-button shape="clear" size="medium">Explorar<ion-icon name="arrow-forward-outline" color="#000"></ion-icon></ion-button>
+          <ion-button shape="clear" (click)="toDetails(pokemon.name, pokemon.image)" size="medium">Explorar<ion-icon name="arrow-forward-outline" color="#000"></ion-icon></ion-button>
         </div>
      </div>
     </ion-list>

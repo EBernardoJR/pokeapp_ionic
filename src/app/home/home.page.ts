@@ -73,4 +73,8 @@ export class HomePage {
   toSaveds() {
     this.router.navigate(['/saveds'], { queryParams: { name: this.name }})
   }
+
+  toDetails(pokemon: any, url: any){
+    this.router.navigate(['/details'], { queryParams: { pokemon, url }})
+  }
 }
