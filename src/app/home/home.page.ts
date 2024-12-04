@@ -15,8 +15,10 @@ export class HomePage {
   pokemonsSaveds: any[] = []; // Lista de Pokémon
   isLoading = true; // Indicador de carregamento
   filter: string = '';
-  name: string = 'Usuário';
-  filteredPokemonList: any[] = []; // Lista filtrada
+  name: string = '';  
+  email: string = '';  
+  filteredPokemonList: any[] = [];  
+
 
   constructor(private pokemonService: PokemonService,
     private navCtrl: NavController, private route: ActivatedRoute,
@@ -24,16 +26,15 @@ export class HomePage {
   ) {}
 
   ngOnInit() {
-    this.fetchPokemonList();
-    this.pokemonsSaveds = this.dataService.getData('pokemon')
-    this.route.queryParams.subscribe(params => {
-      if (params['name']) {
-        this.name = params['name'];
-      } else {
-        this.navCtrl.navigateRoot('/login')
-      }
-    });
+    this.name = this.dataService.getData('name');  
+    this.email = this.dataService.getData('email');  
+    this.fetchPokemonList()
+
+    if (!this.name || !this.email) {
+      this.navCtrl.navigateRoot('/login');
+    }
   }
+
 
   fetchPokemonList() {
     this.pokemonService.getPokemonList(20, 0).subscribe({
@@ -67,8 +68,7 @@ export class HomePage {
 
   save(pokemon: any) {
     this.dataService.setData('pokemon', pokemon);
-    this.pokemonsSaveds = this.dataService.getData('pokemon')
-    console.log(this.pokemonsSaveds)
+    this.pokemonsSaveds = this.dataService.getData('pokemon');
   }
   toSaveds() {
     this.router.navigate(['/saveds'], { queryParams: { name: this.name }})
