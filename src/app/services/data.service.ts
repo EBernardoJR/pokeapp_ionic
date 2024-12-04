@@ -14,7 +14,8 @@ export class DataService {
   setData(key: string, value: any) {
     if (key === 'name' || key === 'email') {
       this.data[key] = value;
-    } else if (this.data?.hasOwnProperty(key) && !this.data[key]?.includes(value)) {
+    } 
+    if (this.data?.hasOwnProperty(key) && !this.data[key]?.includes(value)) {
       value = [...this.data[key], value];
       this.data = { ...this.data, [key]: value };
     }
